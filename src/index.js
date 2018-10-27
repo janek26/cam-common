@@ -1,7 +1,7 @@
-import Schemas from './schemas'
+import { loginSchema, registerSchema } from './schemas'
 
-export const schemas = Schemas
+export const schemas = { loginSchema, registerSchema }
 
 export default {
-  schemas: Schemas,
+  schemas,
 }

@@ -1,4 +1,4 @@
-import yup from 'yup'
+import * as yup from 'yup'
 import { emailValidation, passwordValidation } from './login'
 
 export const firstNameErrors = {

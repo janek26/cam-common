@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.passwordValidation = exports.emailValidation = exports.passwordErrors = exports.emailErrors = void 0;
 
-var _yup = _interopRequireDefault(require("yup"));
+var yup = _interopRequireWildcard(require("yup"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 var emailErrors = {
   required: 'Eine eMail muss angegeben werden',
@@ -20,16 +20,12 @@ var passwordErrors = {
   max: 'Ein Password kann maximal 128 Zeichen haben'
 };
 exports.passwordErrors = passwordErrors;
-
-var emailValidation = _yup.default.string().required(emailErrors.required).email(emailErrors.format);
-
+var emailValidation = yup.string().required(emailErrors.required).email(emailErrors.format);
 exports.emailValidation = emailValidation;
-
-var passwordValidation = _yup.default.string().required(passwordErrors.required).min(6, passwordErrors.min).max(128, passwordErrors.max);
-
+var passwordValidation = yup.string().required(passwordErrors.required).min(6, passwordErrors.min).max(128, passwordErrors.max);
 exports.passwordValidation = passwordValidation;
 
-var _default = _yup.default.object().required().shape({
+var _default = yup.object().required().shape({
   email: emailValidation,
   password: passwordValidation
 });

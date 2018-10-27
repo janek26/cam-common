@@ -5,11 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.nameErrors = exports.lastNameErrors = exports.firstNameErrors = void 0;
 
-var _yup = _interopRequireDefault(require("yup"));
+var yup = _interopRequireWildcard(require("yup"));
 
 var _login = require("./login");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 var firstNameErrors = {
   required: 'Ein Vorname muss angegeben werden',
@@ -30,10 +30,10 @@ var nameErrors = {
 };
 exports.nameErrors = nameErrors;
 
-var _default = _yup.default.object().required().shape({
-  firstName: _yup.default.string().required(firstNameErrors.required).min(3, firstNameErrors.min).max(128, firstNameErrors.max),
-  lastName: _yup.default.string().required(lastNameErrors.required).min(3, lastNameErrors.min).max(128, lastNameErrors.max),
-  name: _yup.default.string().required(nameErrors.required).min(3, nameErrors.min).max(128, nameErrors.max),
+var _default = yup.object().required().shape({
+  firstName: yup.string().required(firstNameErrors.required).min(3, firstNameErrors.min).max(128, firstNameErrors.max),
+  lastName: yup.string().required(lastNameErrors.required).min(3, lastNameErrors.min).max(128, lastNameErrors.max),
+  name: yup.string().required(nameErrors.required).min(3, nameErrors.min).max(128, nameErrors.max),
   email: _login.emailValidation,
   password: _login.passwordValidation
 });

@@ -5,13 +5,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.schemas = void 0;
 
-var _schemas = _interopRequireDefault(require("./schemas"));
+var _schemas = require("./schemas");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var schemas = _schemas.default;
+var schemas = {
+  loginSchema: _schemas.loginSchema,
+  registerSchema: _schemas.registerSchema
+};
 exports.schemas = schemas;
 var _default = {
-  schemas: _schemas.default
+  schemas: schemas
 };
 exports.default = _default;
