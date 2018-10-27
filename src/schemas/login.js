@@ -6,7 +6,7 @@ export const emailErrors = {
 }
 export const passwordErrors = {
   required: 'Ein Password muss angegeben werden',
-  min: 'Ein Password muss mindestens 6 Zeichen haben',
+  min: 'Ein Password muss mindestens 4 Zeichen haben',
   max: 'Ein Password kann maximal 128 Zeichen haben',
 }
 
@@ -17,7 +17,7 @@ export const emailValidation = yup
 export const passwordValidation = yup
   .string()
   .required(passwordErrors.required)
-  .min(6, passwordErrors.min)
+  .min(4, passwordErrors.min)
   .max(128, passwordErrors.max)
 
 export default yup

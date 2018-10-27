@@ -16,13 +16,13 @@ var emailErrors = {
 exports.emailErrors = emailErrors;
 var passwordErrors = {
   required: 'Ein Password muss angegeben werden',
-  min: 'Ein Password muss mindestens 6 Zeichen haben',
+  min: 'Ein Password muss mindestens 4 Zeichen haben',
   max: 'Ein Password kann maximal 128 Zeichen haben'
 };
 exports.passwordErrors = passwordErrors;
 var emailValidation = yup.string().required(emailErrors.required).email(emailErrors.format);
 exports.emailValidation = emailValidation;
-var passwordValidation = yup.string().required(passwordErrors.required).min(6, passwordErrors.min).max(128, passwordErrors.max);
+var passwordValidation = yup.string().required(passwordErrors.required).min(4, passwordErrors.min).max(128, passwordErrors.max);
 exports.passwordValidation = passwordValidation;
 
 var _default = yup.object().required().shape({
