@@ -5,3 +5,4 @@ yarn.lock
 .prettierignore
 .gitignore
 README.md
+dist
