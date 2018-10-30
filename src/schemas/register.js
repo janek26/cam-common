@@ -11,11 +11,6 @@ export const lastNameErrors = {
   min: 'Der Nachname muss mindestens 3 Zeichen haben',
   max: 'Der Nachname kann maximal 128 Zeichen haben',
 }
-export const nameErrors = {
-  required: 'Ein Username muss angegeben werden',
-  min: 'Der Username muss mindestens 3 Zeichen haben',
-  max: 'Der Username kann maximal 128 Zeichen haben',
-}
 
 export default yup
   .object()
@@ -31,11 +26,6 @@ export default yup
       .required(lastNameErrors.required)
       .min(3, lastNameErrors.min)
       .max(128, lastNameErrors.max),
-    name: yup
-      .string()
-      .required(nameErrors.required)
-      .min(3, nameErrors.min)
-      .max(128, nameErrors.max),
     email: emailValidation,
     password: passwordValidation,
   })
