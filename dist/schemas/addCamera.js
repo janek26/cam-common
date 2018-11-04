@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.matchesHostnamesOrIp = exports.portErrors = exports.addressErrors = exports.nameErrors = void 0;
+exports.default = exports.portValidation = exports.hostValidation = exports.matchesHostnamesOrIp = exports.portErrors = exports.addressErrors = exports.nameErrors = void 0;
 
 var yup = _interopRequireWildcard(require("yup"));
 
@@ -30,12 +30,18 @@ var portErrors = {
 exports.portErrors = portErrors;
 var matchesHostnamesOrIp = /(^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$)|(^(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?$)/;
 exports.matchesHostnamesOrIp = matchesHostnamesOrIp;
+var hostValidation = yup.string().required(addressErrors.required).trim().matches(matchesHostnamesOrIp, addressErrors.url).matches(/^((?!((^127\.)|(^10\.)|(^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|(^192\.168\.))).)*$/, addressErrors.local);
+exports.hostValidation = hostValidation;
+var portValidation = yup.number().min(0, portErrors.min).max(65535, portErrors.max);
+exports.portValidation = portValidation;
 
 var _default = yup.object().required().shape({
   name: yup.string().required(nameErrors.required).min(3, nameErrors.min).max(128, nameErrors.max),
-  address: yup.string().required(addressErrors.required).trim().matches(matchesHostnamesOrIp, addressErrors.url).matches(/^((?!((^127\.)|(^10\.)|(^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|(^192\.168\.))).)*$/, addressErrors.local),
-  http: yup.number().required(addressErrors.required).min(0, portErrors.min).max(65535, portErrors.max),
-  rtsp: yup.number().min(0, portErrors.min).max(65535, portErrors.max)
+  address: hostValidation,
+  usr: yup.string().ensure(),
+  pwd: yup.string().ensure(),
+  http: portValidation.required(addressErrors.required),
+  rtsp: portValidation.max(65535, portErrors.max)
 });
 
 exports.default = _default;
