@@ -10,6 +10,7 @@ var _schemas = require("./schemas");
 var schemas = {
   loginSchema: _schemas.loginSchema,
   registerSchema: _schemas.registerSchema,
+  profileSchema: _schemas.profileSchema,
   addCameraSchema: _schemas.addCameraSchema
 };
 exports.schemas = schemas;

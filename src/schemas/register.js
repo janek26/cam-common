@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { emailValidation, passwordValidation } from './login'
+import loginSchema from './login'
 
 export const firstNameErrors = {
   required: 'Ein Vorname muss angegeben werden',
@@ -12,20 +12,15 @@ export const lastNameErrors = {
   max: 'Der Nachname kann maximal 128 Zeichen haben',
 }
 
-export default yup
-  .object()
-  .required()
-  .shape({
-    firstName: yup
-      .string()
-      .required(firstNameErrors.required)
-      .min(3, firstNameErrors.min)
-      .max(128, firstNameErrors.max),
-    lastName: yup
-      .string()
-      .required(lastNameErrors.required)
-      .min(3, lastNameErrors.min)
-      .max(128, lastNameErrors.max),
-    email: emailValidation,
-    password: passwordValidation,
-  })
+export default loginSchema.shape({
+  firstName: yup
+    .string()
+    .required(firstNameErrors.required)
+    .min(3, firstNameErrors.min)
+    .max(128, firstNameErrors.max),
+  lastName: yup
+    .string()
+    .required(lastNameErrors.required)
+    .min(3, lastNameErrors.min)
+    .max(128, lastNameErrors.max),
+})
