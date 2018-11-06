@@ -7,7 +7,7 @@ exports.default = exports.emailValidation = exports.portValidation = exports.hos
 
 var _login = _interopRequireWildcard(require("./login"));
 
-var _profile = _interopRequireDefault(require("./profile"));
+var _profil = _interopRequireDefault(require("./profil"));
 
 var _register = _interopRequireDefault(require("./register"));
 
@@ -21,7 +21,7 @@ var loginSchema = _login.default;
 exports.loginSchema = loginSchema;
 var registerSchema = _register.default;
 exports.registerSchema = registerSchema;
-var profileSchema = _profile.default;
+var profileSchema = _profil.default;
 exports.profileSchema = profileSchema;
 var addCameraSchema = _addCamera.default;
 exports.addCameraSchema = addCameraSchema;

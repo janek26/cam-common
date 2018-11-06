@@ -1,5 +1,5 @@
 import login, { emailValidation as eV } from './login'
-import profile from './profile'
+import profile from './profil'
 import register from './register'
 import addCamera, {
   hostValidation as hV,
