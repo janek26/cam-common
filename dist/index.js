@@ -16,7 +16,8 @@ var schemas = {
 exports.schemas = schemas;
 var validations = {
   hostValidation: _schemas.hostValidation,
-  portValidation: _schemas.portValidation
+  portValidation: _schemas.portValidation,
+  emailValidation: _schemas.emailValidation
 };
 exports.validations = validations;
 var _default = {

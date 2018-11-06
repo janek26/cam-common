@@ -1,4 +1,4 @@
-import login from './login'
+import login, { emailValidation as eV } from './login'
 import profile from './profile'
 import register from './register'
 import addCamera, {
@@ -13,6 +13,7 @@ export const addCameraSchema = addCamera
 
 export const hostValidation = hV
 export const portValidation = pV
+export const emailValidation = eV
 
 export default {
   loginSchema,
@@ -22,4 +23,5 @@ export default {
 
   hostValidation,
   portValidation,
+  emailValidation,
 }

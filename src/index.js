@@ -5,6 +5,7 @@ import {
   addCameraSchema,
   hostValidation,
   portValidation,
+  emailValidation,
 } from './schemas'
 
 export const schemas = {
@@ -13,7 +14,7 @@ export const schemas = {
   profileSchema,
   addCameraSchema,
 }
-export const validations = { hostValidation, portValidation }
+export const validations = { hostValidation, portValidation, emailValidation }
 
 export default {
   schemas,
