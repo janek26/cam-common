@@ -6,8 +6,9 @@ export const emailErrors = {
 }
 export const passwordErrors = {
   required: 'Ein Password muss angegeben werden',
-  min: 'Ein Password muss mindestens 4 Zeichen haben',
+  min: 'Ein Password muss mindestens 8 Zeichen haben',
   max: 'Ein Password kann maximal 128 Zeichen haben',
+  number: 'Ein Password muss mindestens zwei Zahlen enthalten',
 }
 
 export const emailValidation = yup
@@ -17,8 +18,9 @@ export const emailValidation = yup
 export const passwordValidation = yup
   .string()
   .required(passwordErrors.required)
-  .min(4, passwordErrors.min)
+  .min(8, passwordErrors.min)
   .max(128, passwordErrors.max)
+  .matches(/\d.*\d/g, passwordErrors.number)
 
 export default yup
   .object()
