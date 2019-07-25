@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.validations = exports.schemas = void 0;
+exports.default = exports.regexs = exports.validations = exports.schemas = void 0;
 
 var _schemas = require("./schemas");
 
@@ -20,7 +20,16 @@ var validations = {
   emailValidation: _schemas.emailValidation
 };
 exports.validations = validations;
+var regexs = {
+  ipv6Regex: _schemas.ipv6Regex,
+  ipv4Regex: _schemas.ipv4Regex,
+  privateIpv4Regex: _schemas.privateIpv4Regex,
+  privateIpv6Regex: _schemas.privateIpv6Regex,
+  hostnameRegex: _schemas.hostnameRegex
+};
+exports.regexs = regexs;
 var _default = {
+  regexs: regexs,
   schemas: schemas,
   validations: validations
 };
