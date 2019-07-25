@@ -18,12 +18,12 @@ var passwordErrors = {
   required: 'Ein Password muss angegeben werden',
   min: 'Ein Password muss mindestens 8 Zeichen haben',
   max: 'Ein Password kann maximal 128 Zeichen haben',
-  number: 'Ein Password muss mindestens zwei Zahlen enthalten'
+  number: 'Ein Password muss mindestens eine Zahl enthalten'
 };
 exports.passwordErrors = passwordErrors;
 var emailValidation = yup.string().required(emailErrors.required).email(emailErrors.format);
 exports.emailValidation = emailValidation;
-var passwordValidation = yup.string().required(passwordErrors.required).min(8, passwordErrors.min).max(128, passwordErrors.max);
+var passwordValidation = yup.string().required(passwordErrors.required).min(8, passwordErrors.min).max(128, passwordErrors.max).matches(/(?=.*[0-9])/g, passwordErrors.number);
 exports.passwordValidation = passwordValidation;
 
 var _default = yup.object().required().shape({
